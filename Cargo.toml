@@ -1,0 +1,14 @@
+[package]
+name = "rIRC"
+version = "0.1.0"
+authors = ["mkane0814 <kanemtthw@gmail.com>"]
+
+[dependencies]
+irc = "*"
+futures = "*"
+failure = "*"
+tokio-core = "*"
+gtk = "*"
+relm = "*"
+relm-derive = "*"
+relm-attributes = "*"
