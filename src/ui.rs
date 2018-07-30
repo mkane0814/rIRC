@@ -1,21 +1,31 @@
-#![feature(use_extern_macros)]
-
-
 use relm_attributes::widget;
 
-struct Model {
-    // …
+pub struct Model {
+    counter: i32,
 }
 
 #[derive(Msg)]
-enum Msg {
-    // …
+pub enum Msg {
+    Increment,
+    Decrement,
     Quit,
 }
 
 #[widget]
 impl Widget for Win {
-    fn model(event: Msg) -> RetType {
-        unimplemented!();
+    fn model() -> Model {
+        Model {
+            counter: 0,
+        }
     }
+
+    fn update(&mut self, event: Msg) {
+        match event {
+            Msg::Decrement => self.model.counter -= 1,
+            Msg::Increment => self.model.counter += 1,
+            Msg::Quit => gtk::main_quit(),
+        }
+    }
+
+    
 }
